@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void launchPayment() async {
     var options = {
-      'key': 'rzp_test_bMauZSwfK8d8Kx',
+      'key': '', //your razopay key
       'amount': totalAmount * 100,
       'name': 'flutterdemorazorpay',
       'description': 'Test payment from Flutter app',
