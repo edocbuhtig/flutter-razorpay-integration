@@ -2,8 +2,8 @@
 
 ### Dart plugins
 
-- fluttertoast 3.1.3
-- razorpay_flutter 1.1.2
+- fluttertoast 4.0.1
+- razorpay_flutter 1.2.1
 
 ### Screenshots
 
