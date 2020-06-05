@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void launchPayment() async {
     var options = {
-      'key': '', //your razopay key
+      'key': '', <-- your razorpay api key/test or live mode goes here.
       'amount': totalAmount * 100,
       'name': 'flutterdemorazorpay',
       'description': 'Test payment from Flutter app',
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
       msg: 'Error '+ response.code.toString() + ' ' + response.message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.CENTER,
-      timeInSecForIos: 1,
+      timeInSecForIosWeb: 1,
       backgroundColor: Colors.red,
       textColor: Colors.white,
       fontSize: 16.0
@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
       msg: 'Payment Success '+ response.paymentId,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.CENTER,
-      timeInSecForIos: 1,
+      timeInSecForIosWeb: 1,
       backgroundColor: Colors.green,
       textColor: Colors.black,
       fontSize: 16.0
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
       msg: 'Wallet Name '+ response.walletName,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.CENTER,
-      timeInSecForIos: 1,
+      timeInSecForIosWeb: 1,
       backgroundColor: Colors.green,
       textColor: Colors.black,
       fontSize: 16.0
