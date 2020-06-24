@@ -13,6 +13,6 @@ Razorpay             |  Razorpay |  Razorpay |  Razorpay
 
 ### Tutorial 
 
-Read the complete [tutorial here](https://sunilk.work/google-flutter-app-and-razorpay-payment-gateway-integration/)
+[Google Flutter Razorpay Payment Gateway Integration](https://www.fullstackblog.in/google-flutter-razorpay-payment-gateway-integration/)
 
 
