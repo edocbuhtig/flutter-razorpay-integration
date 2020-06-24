@@ -1,4 +1,4 @@
-# Razorpay integration in your Flutter mobile app
+# Google Flutter Razorpay Payment Gateway Integration
 
 ### Dart plugins
 
