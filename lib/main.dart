@@ -38,7 +38,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   int totalAmount = 0;
   Razorpay _razorpay;
 
@@ -59,67 +58,56 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void launchPayment() async {
     var options = {
-      'key': '', <-- your razorpay api key/test or live mode goes here.
+      'key': '', //<-- your razorpay api key/test or live mode goes here.
       'amount': totalAmount * 100,
       'name': 'flutterdemorazorpay',
       'description': 'Test payment from Flutter app',
-      'prefill': {
-        'contact': '',
-        'email': ''
-      },
-      'external': {
-        'wallets': []
-      }
+      'prefill': {'contact': '', 'email': ''},
+      'external': {'wallets': []}
     };
 
-    try{
+    try {
       _razorpay.open(options);
-    }catch(e){
+    } catch (e) {
       debugPrint(e);
     }
-
   }
 
-  void _handlePaymentError(PaymentFailureResponse response){
+  void _handlePaymentError(PaymentFailureResponse response) {
     Fluttertoast.showToast(
-      msg: 'Error '+ response.code.toString() + ' ' + response.message,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
-      fontSize: 16.0
-    );
+        msg: 'Error ' + response.code.toString() + ' ' + response.message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 
-  void _handlePaymentSuccess(PaymentSuccessResponse response){
+  void _handlePaymentSuccess(PaymentSuccessResponse response) {
     Fluttertoast.showToast(
-      msg: 'Payment Success '+ response.paymentId,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.green,
-      textColor: Colors.black,
-      fontSize: 16.0
-    );
+        msg: 'Payment Success ' + response.paymentId,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.green,
+        textColor: Colors.black,
+        fontSize: 16.0);
   }
 
-  void _handleExternalWallet(ExternalWalletResponse response){
+  void _handleExternalWallet(ExternalWalletResponse response) {
     Fluttertoast.showToast(
-      msg: 'Wallet Name '+ response.walletName,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.green,
-      textColor: Colors.black,
-      fontSize: 16.0
-    );
+        msg: 'Wallet Name ' + response.walletName,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.green,
+        textColor: Colors.black,
+        fontSize: 16.0);
   }
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -142,19 +130,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: InputDecoration(
                   hintText: 'Enter Amount',
                 ),
-                onChanged: (val){
+                onChanged: (val) {
                   setState(() {
                     totalAmount = num.parse(val);
                   });
                 },
               ),
             ),
-            SizedBox(
-              height: 15.0
-            ),
+            SizedBox(height: 15.0),
             RaisedButton(
               child: Text('PAY NOW'),
-              onPressed: (){
+              onPressed: () {
                 launchPayment();
               },
             )
